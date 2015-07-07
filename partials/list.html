@@ -1,0 +1,20 @@
+<h1>Project Catalogue</h1>
+<input type="text" ng-model="query" class="form-control" placeholder="Fileter Here..." autofocus>
+<br>
+<table class="table table-bordered">
+    <thead>
+        <tr><th>Project Name</th><th>Description</th><th>Action</th><tr>
+    </thead>
+    <tbody>
+        <tr ng-show="showLoadding"><td align="center" colspan="3"><h2>Loadding...</h2></td></tr>
+        <tr ng-repeat="project in projects | filter:query">
+            <td><a href="{{project.url}}" target="_blank">{{project.pg_name}}</a></td>
+            <td>{{project.dcpt}}</td>
+            <td>
+                <a href="#/edit/{{project.$id}}"><span class="glyphicon glyphicon-pencil"></span></a>
+                <a href="#" ng-click="remove(project.$id)"><span class="glyphicon glyphicon-trash"></span></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a href="#insert" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Insert New Project</a>

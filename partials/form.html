@@ -1,0 +1,11 @@
+<form name="fbForm">
+    project name <input type="text" name="pj_name" ng-model="project.pg_name" class="form-control" required><br>
+    url <input type="url" name="pj_url" ng-model="project.url" class="form-control" required><br>
+    Description <textarea name="pj_desc" ng-model="project.dcpt" class="form-control" required></textarea><br>
+    <button type="submit" class="btn btn-primary" ng-click="save(project.$id)" ng-disabled="fbForm.pj_name.$invalid || fbForm.pj_url.$invalid || fbForm.pj_desc.$invalid">Save</button>
+    <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+</form>
+<br>
+<hr>
+<br>
+<pre>{{project | json}}</pre>
